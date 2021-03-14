@@ -1,0 +1,16 @@
+- name: Import zoom public key
+  apt_key:
+    url: https://zoom.us/linux/download/pubkey
+    state: present
+    id: 396060CADD8A75220BFCB369B903BF1861A7C71D
+
+- name: Check if zoom is already installed
+  stat:
+    path: /usr/bin/zoom
+  register: zoom_alias
+
+- name: Install zoom
+  apt:
+    deb: "https://zoom.us/client/latest/zoom_amd64.deb"
+    state: present
+  when: zoom_alias.stat.exists == False

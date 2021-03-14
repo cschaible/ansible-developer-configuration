@@ -1,0 +1,40 @@
+- name: Import confluent public key
+  apt_key:
+    url: "https://packages.confluent.io/deb/{{ confluent_platform_version }}/archive.key"
+    state: present
+
+- name: Add confluent platform repository
+  apt_repository:
+    filename: confluent-platform
+    repo: "deb [arch=amd64] https://packages.confluent.io/deb/{{ confluent_platform_version }} stable main"
+    state: present
+
+- name: Install confluent platform
+  package:
+    name: "confluent-community-{{ confluent_package_version }}"
+    state: present
+
+- name: Create diretory for confluent cloud cli
+  file:
+    path: /opt/ccloud
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Confluent cloud cli (ccloud)
+  unarchive:
+    src: "https://s3-us-west-2.amazonaws.com/confluent.cloud/ccloud-cli/archives/latest/ccloud_latest_linux_amd64.tar.gz"
+    creates: /opt/ccloud/ccloud
+    remote_src: yes
+    dest: /opt/ccloud
+    extra_opts:
+      - "--strip-components=1"
+  become: yes
+  become_user: "{{username}}"
+
+- name: Create ccloud link
+  file:
+    src: /opt/ccloud/ccloud
+    dest: "/home/{{username}}/.local/bin/ccloud"
+    state: link

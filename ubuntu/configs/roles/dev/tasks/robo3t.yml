@@ -1,0 +1,22 @@
+- name: Create robo3t directory
+  file:
+    path: /opt/robo3t
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Download and extract robo3t
+  unarchive:
+    src: "https://download.studio3t.com/robomongo/linux/robo3t-{{ robo3t_version }}.tar.gz"
+    creates: /opt/robo3t/bin/robo3t
+    remote_src: yes
+    dest: /opt/robo3t
+    extra_opts:
+      - "--strip-components=1"
+
+- name: Create robo3t link
+  file:
+    src: /opt/robo3t/bin/robo3t
+    dest: "/home/{{username}}/.local/bin/robo3t"
+    state: link

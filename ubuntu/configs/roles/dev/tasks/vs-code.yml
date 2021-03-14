@@ -1,0 +1,18 @@
+- name: Import microsoft public key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+    id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+
+- name: Add visual studio code repository
+  apt_repository:
+    filename: vscode
+    repo: "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+    state: present
+
+- name: Install visual studio code
+  package:
+    name: code
+    state: present
+
+# Set telemetry.enableTelemetry and enable-crash-reporter to false

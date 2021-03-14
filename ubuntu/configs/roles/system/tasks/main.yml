@@ -1,0 +1,6 @@
+- include: localbin.yml
+- include: packages.yml
+- include: vim.yml
+- include: zsh.yml
+- include: fzf.yml
+- include: openvpn.yml

@@ -1,0 +1,14 @@
+- name: Install packages
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+   - chromium-browser
+   - chromium-browser-l10n
+   - chromium-codecs-ffmpeg-extra
+   - flameshot
+   - gnome-todo
+   - gnome-screensaver
+   - curl
+   - apt-transport-https
+   - libreoffice

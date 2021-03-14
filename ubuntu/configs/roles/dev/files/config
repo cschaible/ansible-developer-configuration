@@ -1,0 +1,120 @@
+[alias]
+  l = log --color --graph --format=format:'%C(blue)%h%C(reset) - %C(white)(%ar)%C(reset) %s %C(red)%d%C(reset) %C(bold blue)— %an%C(reset)' --abbrev-commit
+  lf = log --color --graph --name-status --format=format:'%C(blue)%h%C(reset) - %C(white)(%ar)%C(reset) %s %C(red)%d%C(reset) %C(bold blue)— %an%C(reset)' --abbrev-commit
+  lg = log --color --graph -n 15 --format=format:'%C(blue)%h%C(reset) - %C(white)(%ar)%C(reset) %s %C(red)%d%C(reset) %C(bold blue)— %an%C(reset)' --abbrev-commit
+  ll = log --color --graph --all --format=format:'%C(blue)%h%C(reset) - %C(white)(%ar)%C(reset) %s %C(red)%d%C(reset) %C(bold blue)— %an%C(reset)' --abbrev-commit
+  lm = log --color -n 15 --pretty
+  lst = log -1
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+  a = add
+  ai = add -i
+  aN = add -N
+  ap = add -p
+  b = branch
+  bc = branch --contains
+  bv = branch -v
+  bva = branch -va
+  c = commit -v
+  ca = commit -v --amend
+  cb = checkout -b
+  cf = commit -v --fixup
+  ch = cherry-pick
+  cnf = config
+  cnfg = config --global
+  co = checkout
+  d = diff --stat
+  dc = diff --color-words
+  dd = diff
+  des = describe
+  dn = diff --name-only --relative
+  ds = diff --name-status
+  dt = difftool
+  dtg = difftool -g
+  f = fetch
+  fa = fetch --all
+  ff = merge --ff-only
+  for = for-each-ref
+  fp = format-patch
+  m = merge
+  mt = mergetool
+  nr = name-rev
+  p = push
+  pf = push --force-with-lease
+  pu = pull
+  r = remote
+  rb = rebase
+  rbi = rebase -i
+  rbx = rebase -x
+  rs = reset
+  rsh = reset --hard
+  rss = reset --soft
+  rv = remote -v
+  s = status -s
+  ss = status
+  st = stash
+  sta = stash apply
+  std = stash drop
+  stl = stash list
+  stp = stash pop
+  sts = stash save
+  t = tag
+  tc = tag --contains
+  wtf = config --show-origin
+[diff]
+  tool = vimdiff
+  guitool = kdiff3
+[core]
+  editor = vim
+  autocrlf = input
+  pager = delta
+[merge]
+  tool = kdiff3
+[push]
+  default = simple
+[color]
+  ui = auto
+[credential]
+  helper = cache --timeout=999999
+[difftool]
+  prompt = yes
+[rerere]
+  enabled = true
+[user]
+  name = <first-name> <last-name>
+  email = <email>
+  username = <pc-login-username>
+[delta]
+  side-by-side = true
+  syntax-theme = zenburn
+  features = defaults unobtrusive-line-numbers decorations dark
+[delta "defaults"]
+  navigate = true
+  paging = always
+  whitespace-error-style = 22 reverse
+[delta "unobtrusive-line-numbers"]
+  line-numbers = true
+  line-numbers-minus-style = red
+  line-numbers-plus-style = green
+  line-numbers-left-format = "{nm:>4}┊"
+  line-numbers-right-format = "{np:>4}┊"
+  line-numbers-left-style = red
+  line-numbers-right-style = green
+[delta "decorations"]
+  commit-style = yellow
+  commit-decoration-style = yellow box ul
+  file-style = bold cyan ul
+  file-decoration-style = none
+  hunk-header-style = bold blue
+  hunk-header-decoration-style = blue box
+[delta "dark"]
+  line-numbers-zero-style = "#75829c"
+  minus-style = syntax "#5A4646" 
+  minus-emph-style = white "#8a0b0e" #black red
+  plus-style = syntax "#415541"
+  plus-emph-style = white "#057801" #black green
+[delta "light"]
+  line-numbers-zero-style = "#AAAAAA"
+  minus-style = syntax "#FEEDEF" 
+  plus-style = syntax "#E4FDEB"
+

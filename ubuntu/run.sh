@@ -1,0 +1,1 @@
+ansible-playbook ./configs/playbook.yml --ask-become-pass

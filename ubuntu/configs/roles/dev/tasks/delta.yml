@@ -1,0 +1,8 @@
+- name: Check if delta is already installed
+  stat:
+    path: "/home/{{username}}/.local/bin/delta"
+  register: delta_alias
+
+- name: Install delta
+  apt: deb="https://github.com/dandavison/delta/releases/download/{{delta_version}}/git-delta_{{delta_version}}_amd64.deb"
+  when: delta_alias.stat.exists == False

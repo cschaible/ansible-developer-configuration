@@ -1,0 +1,6 @@
+- name: Load vars of communication role
+  include_vars: "{{ role_path }}/vars/vars.yml"
+
+- include: ms-teams.yml
+- include: slack.yml
+- include: zoom.yml

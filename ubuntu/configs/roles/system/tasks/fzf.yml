@@ -1,0 +1,10 @@
+- name: Install fzf
+  package:
+    name: fzf
+    state: present
+
+- name: Add fzf key-bindings to ~/.bashrc
+  lineinfile:
+    path: "/home/{{username}}/.bashrc"
+    line: "source /usr/share/fzf/shell/key-bindings.bash"
+    state: present

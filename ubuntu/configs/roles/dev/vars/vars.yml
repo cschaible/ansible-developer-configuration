@@ -1,0 +1,15 @@
+confluent_package_version: 2.13
+confluent_platform_version: 6.1
+delta_version: 0.6.0
+dive_version: 0.10.0
+dot_net_core_version: 3.1
+helm_version: 3.5.2
+jetbrains_toolbox_version: 1.20.7940
+jmeter_version: 5.4.1
+k9s_version: 0.24.2
+mysql_workbench_version: 8.0.23
+nvm_version: 0.37.2
+robo3t_version: 1.4.3-linux-x86_64-48f7dfd
+terraform_version: 0.13.5
+visualvm_version: 2.0.6
+visualvm_version_short: 206

@@ -1,0 +1,20 @@
+- name: Check if dotnet is already installed
+  stat:
+    path: /usr/bin/dotnet
+  register: dotnet_alias
+
+- name: Download MS product repository
+  get_url:
+    url: "https://packages.microsoft.com/config/ubuntu/{{ ubuntu_release }}/packages-microsoft-prod.deb"
+    dest: /tmp/packages-microsoft-prod.deb
+  when: dotnet_alias.stat.exists == False
+
+- name: Install MS product repository
+  apt: deb=/tmp/packages-microsoft-prod.deb
+  when: dotnet_alias.stat.exists == False
+
+- name: Install .net core sdk
+  apt:
+    name: "dotnet-sdk-{{ dot_net_core_version }}"
+    update_cache: yes
+    state: present

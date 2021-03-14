@@ -1,0 +1,31 @@
+- name: Install git
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+   - git
+   - tig
+
+- name: Create diretory for git config
+  file:
+    path: "/home/{{username}}/.config/git"
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Copy the git config to user directory
+  copy:
+    src: "{{ role_path }}/files/config"
+    dest: "/home/{{username}}/.config/git/config"
+    owner: "{{username}}"
+    group: "{{username}}"
+    force: no
+
+- name: Copy the tig config to user directory
+  copy:
+    src: "{{ role_path }}/files/.tigrc"
+    dest: "/home/{{username}}/.tigrc"
+    owner: "{{username}}"
+    group: "{{username}}"
+    force: no

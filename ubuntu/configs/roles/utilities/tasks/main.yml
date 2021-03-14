@@ -1,0 +1,6 @@
+- name: Load vars of utilities role
+  include_vars: "{{ role_path }}/vars/vars.yml"
+
+- include: packages.yml
+- include: rkhunter.yml
+- include: virtualbox.yml

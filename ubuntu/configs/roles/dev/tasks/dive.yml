@@ -1,0 +1,8 @@
+- name: Check if dive is already installed
+  stat:
+    path: /usr/local/bin/dive
+  register: dive_alias
+
+- name: Install dive
+  apt: deb="https://github.com/wagoodman/dive/releases/download/v{{dive_version}}/dive_{{dive_version}}_linux_amd64.deb"
+  when: dive_alias.stat.exists == False

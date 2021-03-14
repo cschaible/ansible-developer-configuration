@@ -1,0 +1,8 @@
+- name: Install openvpn
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+   - openvpn
+   - network-manager-openvpn-gnome
+   - easy-rsa

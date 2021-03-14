@@ -1,0 +1,16 @@
+- name: Import microsoft public key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+    id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+
+- name: Add ms-teams repository
+  apt_repository:
+    filename: teams
+    repo: "deb https://packages.microsoft.com/repos/ms-teams stable main"
+    state: present
+
+- name: Install ms-teams
+  package:
+    name: teams
+    state: present

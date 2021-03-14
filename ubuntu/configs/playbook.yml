@@ -1,0 +1,16 @@
+---
+- name: Install packages
+  hosts: local
+  connection: local
+  become: yes
+
+  vars:
+    ubuntu_release: 20.04
+    ubuntu_release_name: focal
+    username: <username>
+
+  roles:
+    - system
+    - utilities
+    - dev
+    - communication

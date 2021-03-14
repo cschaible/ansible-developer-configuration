@@ -1,0 +1,12 @@
+- name: Install vim
+  package:
+    name: vim
+    state: present
+
+- name: Copy .vimrc to user directory
+  copy:
+    src: "{{ role_path }}/files/.vimrc"
+    dest: "/home/{{username}}/.vimrc"
+    owner: "{{username}}"
+    group: "{{username}}"
+    force: no

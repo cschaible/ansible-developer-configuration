@@ -1,0 +1,23 @@
+- name: Create diretory for VisualVM
+  file:
+    path: /opt/visualvm
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Download and unpack VisualVM
+  unarchive:
+    src: "https://github.com/oracle/visualvm/releases/download/{{visualvm_version}}/visualvm_{{visualvm_version_short}}.zip"
+    creates: "/opt/visualvm/visualvm_{{visualvm_version_short}}/bin/visualvm"
+    remote_src: yes
+    dest: /opt/visualvm
+
+  become: yes
+  become_user: "{{username}}"
+
+- name: Create VisualVM link
+  file:
+    src: "/opt/visualvm/visualvm_{{visualvm_version_short}}/bin/visualvm"
+    dest: "/home/{{username}}/.local/bin/visualvm"
+    state: link

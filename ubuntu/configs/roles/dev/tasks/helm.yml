@@ -1,0 +1,10 @@
+- name: Download and unpack helm
+  unarchive:
+    src: "https://get.helm.sh/helm-v{{ helm_version }}-linux-amd64.tar.gz"
+    creates: "/home/{{ username }}/.local/bin/helm"
+    remote_src: yes
+    dest: "/home/{{ username }}/.local/bin"
+    extra_opts:
+      - "--strip-components=1"
+  become: yes
+  become_user: "{{username}}"

@@ -1,0 +1,14 @@
+- name: Install rkhunter
+  package:
+    name: rkhunter
+    state: present
+
+#Adjust /etc/rkhunter.conf (required for updates)
+#UPDATE_MIRRORS=0     --> UPDATE_MIRRORS=1
+#MIRRORS_MODE=1       --> MIRRORS_MODE=0
+#WEB_CMD="/bin/false" --> WEB_CMD=""
+
+#Run manually:
+#Populate file properties database with local files: sudo rkhunter --propupd
+#Update: sudo rkhunter --update
+#Run checks: sudo rkhunter --check

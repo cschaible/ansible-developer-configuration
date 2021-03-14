@@ -1,0 +1,13 @@
+- name: Create ~/.local/bin directory
+  file:
+    path: "/home/{{username}}/.local/bin"
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Add ~/.local/bin to ~/.bashrc
+  lineinfile:
+    path: "/home/{{username}}/.bashrc"
+    line: "export PATH=$HOME/.local/bin:$PATH"
+    state: present

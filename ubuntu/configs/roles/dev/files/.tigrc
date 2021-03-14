@@ -1,0 +1,5 @@
+bind status D !@?rm %(file)
+bind status w !git diff -- %(file)
+bind stage w !git diff -- %(file)
+bind main w !git diff %(commit)
+bind diff w !git diff %(commit)

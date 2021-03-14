@@ -1,0 +1,11 @@
+- name: Check if mysql-workbench is already installed
+  stat:
+    path: /usr/bin/mysql-workbench
+  register: mysql_workbench_alias
+
+- name: Install mysql-workbench
+  apt:
+    deb: "https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_{{ mysql_workbench_version }}-1ubuntu20.04_amd64.deb"
+    state: present
+  when: mysql_workbench_alias.stat.exists == False
+

@@ -1,0 +1,22 @@
+- name: Create postman directory
+  file:
+    path: /opt/postman
+    state: directory
+    mode: 0755
+    owner: "{{username}}"
+    group: "{{username}}"
+
+- name: Download and extract postman
+  unarchive:
+    src: https://dl.pstmn.io/download/latest/linux64
+    creates: /opt/postman/Postman
+    remote_src: yes
+    dest: /opt/postman
+    extra_opts:
+      - "--strip-components=1"
+
+- name: Create postman link
+  file:
+    src: /opt/postman/Postman
+    dest: "/home/{{username}}/.local/bin/postman"
+    state: link

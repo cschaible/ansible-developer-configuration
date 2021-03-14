@@ -1,0 +1,17 @@
+- name: Install packages
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+   - acpi
+   - cifs-utils
+   - ufw
+   - git
+   - gufw
+   - gnome-shell-extension-top-icons-plus
+   - gnome-tweaks
+   - htop
+   - jq
+   - lshw
+   - ncdu
+   - pavucontrol

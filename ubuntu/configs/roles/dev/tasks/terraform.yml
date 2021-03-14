@@ -1,0 +1,8 @@
+- name: Download and unpack terraform
+  unarchive:
+    src: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+    creates: "/home/{{ username }}/.local/bin/terraform"
+    remote_src: yes
+    dest: "/home/{{ username }}/.local/bin"
+  become: yes
+  become_user: "{{username}}"

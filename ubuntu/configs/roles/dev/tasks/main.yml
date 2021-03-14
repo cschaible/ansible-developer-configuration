@@ -1,0 +1,23 @@
+- name: Load vars of dev role
+  include_vars: "{{ role_path }}/vars/vars.yml"
+
+- include: azure-cli.yml
+- include: confluent.yml
+- include: docker.yml
+- include: dotnet-core.yml
+- include: git.yml
+- include: helm.yml
+- include: jetbrains-toolbox.yml
+- include: jmeter.yml
+- include: k9s.yml
+- include: kubectl.yml
+- include: mysql-workbench.yml
+- include: nvm.yml
+- include: packages.yml
+- include: postman.yml
+- include: robo3t.yml
+- include: terraform.yml
+- include: vs-code.yml
+- include: visualvm.yml
+- include: dive.yml
+- include: delta.yml
