@@ -28,13 +28,12 @@ Run the run.sh shell script.
 3. Configure fs.inotify.max_user_watches = 524288 in /etc/sysctl.conf and run sudo sysctl -p --system
 4. Install azure storage-explorer (snap install storage-explorer)
 5. Adjust git user details (in /home/<user>/.config/git/config)
-6. Copy the vpn files to ~/.cert and configure VPN
-7. Install IntelliJ via jetbrains toolbox (/opt/jetbrains/jetbrains-toolbox)
-8. Install npm by running: nvm install 12.16.1
-9. Install python black formatter by running: pip3 install black
-10. In VS Code set telemetry.enableTelemetry and enable-crash-reporter to false
-11. Enable the firewall (gufw)
-12. Disable power saving / blank screen (settings/power)
+6. Install IntelliJ via jetbrains toolbox (/opt/jetbrains/jetbrains-toolbox)
+7. Install npm by running: nvm install 12.16.1
+8. Install python black formatter by running: pip3 install black
+9. In VS Code set telemetry.enableTelemetry and enable-crash-reporter to false
+10. Enable the firewall (gufw)
+11. Disable power saving / blank screen (settings/power)
 
 # License
 The ansible scripts are licensed under the MIT license ([LICENSE-MIT](LICENSE-MIT) or [http://opensource.org/licenses/MIT]).
