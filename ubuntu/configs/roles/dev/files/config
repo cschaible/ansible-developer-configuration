@@ -89,7 +89,7 @@
   syntax-theme = zenburn
   features = defaults unobtrusive-line-numbers decorations dark
 [delta "defaults"]
-  navigate = true
+  navigate = false log -p
   paging = always
   whitespace-error-style = 22 reverse
 [delta "unobtrusive-line-numbers"]
