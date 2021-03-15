@@ -33,6 +33,8 @@ Run the run.sh shell script.
 8. Install npm by running: nvm install 12.16.1
 9. Install python black formatter by running: pip3 install black
 10. In VS Code set telemetry.enableTelemetry and enable-crash-reporter to false
+11. Enable the firewall (gufw)
+12. Disable power saving / blank screen (settings/power)
 
 # License
 The ansible scripts are licensed under the MIT license ([LICENSE-MIT](LICENSE-MIT) or [http://opensource.org/licenses/MIT]).
